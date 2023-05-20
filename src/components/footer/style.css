@@ -1,0 +1,21 @@
+.footer{
+    height: 137px;
+    background-color: var(--turquoise-color);
+    color: var(--white-color);
+}
+
+.footer__info{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: end;
+    height: 137px;
+    padding: 25px 0;
+}
+
+.footer__info__address{
+}
+
+.footer__info__copyright{
+    font-size: 12px;
+}

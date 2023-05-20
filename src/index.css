@@ -1,3 +1,12 @@
+:root{
+  --turquoise-color: #029491;
+  --white-color: #FFFFFF;
+  --black-color: #000000;
+  --gold-color: #FFB64F;
+  --light-turquoise-color: #7CE3E1;
+  --light-blue-color: #5970FF;
+}
+
 @font-face {
   font-family: "Ferry";
   src: url(./fonts/ferry_black.otf);
@@ -13,4 +22,13 @@
   padding: 0;
   font-family: "Inter", Arial, Helvetica, sans-serif;
   font-size: 14px;
+  box-sizing: border-box;
+}
+
+.container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  width: calc(100% - 120px);
 }
