@@ -1,0 +1,74 @@
+.account-menu__profile{
+    display: flex;
+    align-items: center;
+}
+
+.account-menu__profile__info{
+    text-align: end;
+    margin-right: 4px;
+}
+
+.account-menu__profile__info__btn{
+    font-size: 10px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: #888;
+    padding: 0;
+    transition: .2s;
+}
+.account-menu__profile__info__btn:hover{
+    color: #666;
+    cursor: pointer;
+    transition: .2s;
+}
+.account-menu__profile__info__btn:active{
+    color: #444;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.account-menu__profile__info__avatar{
+    width: 32px;
+    border-radius: 50%;
+}
+
+
+
+
+
+.account-menu__table{
+    display: flex;
+    justify-content: center;
+    background-color: rgba(217, 217, 217, .3);
+    border-radius: 5px;
+    width: 175px;
+    height: 63px;
+    padding: 13px 8px;
+    margin-right: 20%;
+}
+
+.account-menu__table div{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+.account-menu__table div:nth-child(1){
+    padding: 3px 0;
+}
+
+.account-menu__table__text{
+    font-size: 10px;
+    text-align: end;
+    color:  rgb(178, 178, 178);
+    margin-right: 10px;
+}
+
+.account-menu__table__number{
+    text-align: start;
+    font-weight: 700;
+}
+.account-menu__table__number:nth-child(2){
+    color: #8AC540;
+}

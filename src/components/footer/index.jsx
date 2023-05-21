@@ -2,11 +2,13 @@ import React from "react";
 import "./style.css";
 import logo from "../../img/eqw_1.svg";
 
+import Logo from "../logo";
+
 function Footer(){
   return(
     <footer className="footer">
       <div className="container footer_container">
-        <img className="footer__logo" src={logo} alt="scan_logo"/>
+        <Logo src={logo}/>
         <div className="footer__info">
           <p className="footer__info__address">
             г. Москва, Цветной б-р, 40<br/>
