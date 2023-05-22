@@ -24,3 +24,9 @@
     font-weight: 500;
     color: #888;
 }
+
+@media (max-width:1000px) {
+    .navbar-link{
+        padding: 0 15px;
+    }
+}

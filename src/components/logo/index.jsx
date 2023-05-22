@@ -1,10 +1,10 @@
 import React from "react";
 import "./style.css";
 
-function Logo({src}){
+function Logo({src, className}){
   return(
     <>
-      <img className="header__logo" src={src} alt="scan_logo"/>
+      <img className={className} src={src} alt="scan_logo"/>
     </>
   );
 }

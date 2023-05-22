@@ -3,6 +3,11 @@
     justify-content: space-between;
     width: 60%;
 }
+@media (max-width: 1000px){
+    .header-left{
+        width: 55%;
+    }
+}
 
 .header-right{
     display: flex;

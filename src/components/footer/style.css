@@ -13,9 +13,13 @@
     padding: 25px 0;
 }
 
-.footer__info__address{
-}
-
 .footer__info__copyright{
     font-size: 12px;
+}
+
+@media (max-width: 768px){
+    .footer-logo{
+        width: 111px;
+        align-self: baseline;
+    }
 }

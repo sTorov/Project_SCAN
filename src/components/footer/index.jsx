@@ -7,8 +7,8 @@ import Logo from "../logo";
 function Footer(){
   return(
     <footer className="footer">
-      <div className="container footer_container">
-        <Logo src={logo}/>
+      <div className="container">
+        <Logo className="footer-logo" src={logo}/>
         <div className="footer__info">
           <p className="footer__info__address">
             г. Москва, Цветной б-р, 40<br/>
