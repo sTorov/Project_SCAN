@@ -1,7 +1,8 @@
 .header{
     display: flex;
     align-items: center;
-    height: 93px;
+    min-height: 93px;
+    position: relative;
 }
 
 .header-left{   

@@ -21,5 +21,6 @@
     .footer-logo{
         width: 111px;
         align-self: baseline;
+        margin-top: 6px;
     }
 }

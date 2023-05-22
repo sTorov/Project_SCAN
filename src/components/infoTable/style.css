@@ -20,6 +20,11 @@
         margin-right: 13%;
     }
 }
+@media (max-width:768px) {
+    .account-menu__table{
+        margin-right: 50%;
+    }
+}
 
 .account-menu__table div{
     display: flex;
