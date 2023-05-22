@@ -22,11 +22,16 @@
 }
 .navbar-link.active{
     font-weight: 500;
-    color: #888;
+    color: #aaa;
 }
 
 @media (max-width:1000px) {
     .navbar-link{
         padding: 0 15px;
+    }
+}
+@media (max-width: 768px) {
+    .header-left .navbar{
+        display: none;
     }
 }

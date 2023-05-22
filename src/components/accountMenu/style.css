@@ -2,6 +2,11 @@
     display: flex;
     align-items: center;
 }
+@media(max-width: 768px){
+    .header-right .account-menu__profile{
+        display: none;
+    }
+}
 
 .account-menu__profile__info{
     text-align: end;
@@ -35,66 +40,4 @@
 .account-menu__profile__info__avatar{
     width: 32px;
     border-radius: 50%;
-}
-
-
-
-
-
-.account-menu__table{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background-color: rgba(217, 217, 217, .3);
-    border-radius: 5px;
-    width: 175px;
-    height: 63px;
-    padding: 13px 8px;
-    margin-right: 20%;
-}
-@media (max-width:1200px) {
-    .account-menu__table{
-        margin-right: 15%;
-    }
-}
-@media (max-width:1000px) {
-    .account-menu__table{
-        width: 132px;
-        margin-right: 13%;
-    }
-}
-
-.account-menu__table div{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-.account-menu__table div:nth-child(1){
-    padding: 3px 0;
-}
-
-.account-menu__table__text{
-    display: flex;
-    justify-content: end;
-    align-items: center;
-    font-size: 10px;
-    text-align: end;
-    color:  rgb(178, 178, 178);
-    margin-right: 10px;
-    width: 121px;
-}
-@media (max-width:1000px) {
-    .account-menu__table__text{
-        font-size: 8px;
-        justify-content: start;
-    }
-}
-
-.account-menu__table__number{
-    width: 26px;
-    text-align: start;
-    font-weight: 700;
-}
-.account-menu__table div:nth-of-type(2) .account-menu__table__number{
-    color: #8AC540;
 }

@@ -1,3 +1,9 @@
+.header{
+    display: flex;
+    align-items: center;
+    height: 93px;
+}
+
 .header-left{   
     display: flex;
     justify-content: space-between;
@@ -13,4 +19,9 @@
     display: flex;
     justify-content: end;
     width: 40%;
+}
+@media (max-width: 768px){
+    .header__logo{
+        width: 111px;
+    }
 }

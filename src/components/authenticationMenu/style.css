@@ -2,6 +2,12 @@
     display: flex;
     align-items: center;
 }
+@media(max-width: 768px){
+    .header-right .auth-menu{
+        display: none;
+    }
+}
+
 
 .vr{
     width: 2px;
