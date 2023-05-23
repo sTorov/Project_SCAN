@@ -17,10 +17,7 @@ function Header(){
   const [auth, setAuth] = useState(false);
   const [dropdownClick, setDropdownClick] = useState(false);
 
-  const headerRef = useRef();
-  const dropdownRef = useRef();
-  const iconRef = useRef();
-  const crossIconRef = useRef();
+  const imgRef = useRef();
 
   useEffect(() => {
     window.onresize = resizeWindow;
@@ -32,11 +29,6 @@ function Header(){
   function resizeWindow(){
       if(window.innerWidth > 768){
         setDropdownClick(false);
-
-        headerRef.current.style.backgroundColor = "#FFFFFF";
-        dropdownRef.current.style.display = "none";
-        iconRef.current.style.display = "block";
-        crossIconRef.current.style.display = "none";
       }
   }
 
@@ -46,23 +38,17 @@ function Header(){
 
   function clickHandler(){
     setDropdownClick(!dropdownClick);
-
-    dropdownRef.current.style.display = !dropdownClick 
-    ? "block" : "none";
-    iconRef.current.style.display = !dropdownClick 
-    ? "none" : "block";
-    crossIconRef.current.style.display = !dropdownClick 
-    ? "block" : "none";
-    headerRef.current.style.backgroundColor = !dropdownClick
-    ? "#029491" : "#FFFFFF";
+    
+    imgRef.current.className = "header__logo hidden";
+    setTimeout(() => imgRef.current.className = "header__logo viewed", 600);
   }
 
   return(
     <>
-      <header className="header" ref={headerRef}>
+      <header className={`header ${dropdownClick ? "opened" : ""}`}>
         <div className="container">
           <div className="header-left">
-            <Logo src={dropdownClick ? whiteLogo : logo} className="header__logo"/>
+            <Logo src={dropdownClick ? whiteLogo : logo} className="header__logo" imgRef={imgRef}/>
             <Navbar/>
           </div>
           <div className="header-right">
@@ -70,8 +56,8 @@ function Header(){
             {auth ? <AccountMenu onClick={changeAuth} account={account}/> : <AuthenticationMenu onClick={changeAuth}/>}
           </div>
         </div>
+        <Dropdown onClick={clickHandler} changeAuth={changeAuth} isAuth={auth} isOpen={dropdownClick}/>
       </header>
-      <Dropdown onClick={clickHandler} dropdownRef={dropdownRef} iconRef={iconRef} crossIconRef={crossIconRef} changeAuth={changeAuth} isAuth={auth}/>
     </>
   )
 }
