@@ -26,12 +26,12 @@
     transition: .2s;
 }
 .auth-btn:hover{
-    background-color: #00b9b5;
+    background-color: #73d2d1;
     transition: .2s;
     cursor: pointer;
 }
 .auth-btn:active{
-    background-color: var(--turquoise-color);
+    background-color: #68bdbb;
     transition: .2s;
 }
 

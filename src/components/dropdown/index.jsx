@@ -3,8 +3,9 @@ import "./style.css"
 import cross from "../../img/Cross.svg";
 
 import Navbar from "../navbar";
+import AuthenticationMenu from "../authenticationMenu";
 
-function Dropdown({onClick, dropdownRef, iconRef, crossIconRef}){
+function Dropdown({onClick, dropdownRef, iconRef, crossIconRef, isAuth, changeAuth}){
 
   return(
     <>
@@ -20,6 +21,10 @@ function Dropdown({onClick, dropdownRef, iconRef, crossIconRef}){
       </button>
       <div className="dropdown-menu" ref={dropdownRef}>
         <Navbar/>
+        {isAuth ? <div className="wrapper">
+                    <button className="auth-btn dropdown-cancel-btn" type="button" onClick={() => changeAuth(false)}>Выйти</button>
+                  </div>
+                : <AuthenticationMenu onClick={changeAuth}/>}
       </div>
     </>
   );

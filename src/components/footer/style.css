@@ -24,3 +24,11 @@
         margin-top: 6px;
     }
 }
+@media (max-width: 335px){
+    .footer__info__address{
+        font-size: 12px;
+    }
+    .footer__info__copyright{
+        font-size: 10px;
+    }
+}

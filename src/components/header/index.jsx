@@ -71,7 +71,7 @@ function Header(){
           </div>
         </div>
       </header>
-      <Dropdown onClick={clickHandler} dropdownRef={dropdownRef} iconRef={iconRef} crossIconRef={crossIconRef}/>
+      <Dropdown onClick={clickHandler} dropdownRef={dropdownRef} iconRef={iconRef} crossIconRef={crossIconRef} changeAuth={changeAuth} isAuth={auth}/>
     </>
   )
 }
