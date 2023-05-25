@@ -1,0 +1,24 @@
+.subtitle{
+    font-family: 'Ferry', sans-serif;
+    font-size: 45px;
+    letter-spacing: 1px;
+}
+@media (max-width: 768px){
+    .subtitle{
+        font-size: 35px;
+    }
+}
+@media (max-width: 530px){
+    .subtitle{
+        font-size: 28px;
+    }
+}
+@media (max-width: 400px){
+    .subtitle{
+        width: 274px;
+    }
+}
+
+.carousel{
+    width: 100%;
+}
