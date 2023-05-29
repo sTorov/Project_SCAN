@@ -1,5 +1,6 @@
 .header{
     min-height: 93px;
+    margin-bottom: 50px;
     position: relative;
     background-color: var(--white-color);
     transition: .5s ease;
@@ -7,6 +8,11 @@
 @media(min-width:768px) {
     .header{
         transition: 0s;
+    }
+}
+@media(max-width:768px) {
+    .header{
+        margin-bottom: 0;
     }
 }
 
