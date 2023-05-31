@@ -160,3 +160,9 @@
         margin-bottom: 75px;
     }
 }
+
+.second-main-page-section__rates-wrapper{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 120px;
+}

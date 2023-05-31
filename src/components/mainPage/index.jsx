@@ -3,11 +3,13 @@ import "./style.css";
 
 import background_1 from "../../img/main_1.jpg";
 import background_2 from "../../img/main_2.svg";
+import { rateList } from "../../moq";
 
 import Carousel from "../carousel";
 import Button from "../button";
+import Rate from "../rate";
 
-function MainPage(){
+function MainPage({ auth, account, changeSigned }){
   return(
     <main>
       <section className="first-main-page-section">
@@ -27,6 +29,9 @@ function MainPage(){
           <img className="second-main-page-section__img" src={background_2} alt="background_2_main"/>
         </div>
         <h2 className="main-page-subtitle">наши тарифы</h2>
+        <div className="second-main-page-section__rates-wrapper">
+          {rateList.map(item => <Rate key={item.id} item={item} signed={auth ? account.signed : null} changeSigned={auth ? changeSigned : null}/>)}
+        </div>
       </section>
     </main>
   )

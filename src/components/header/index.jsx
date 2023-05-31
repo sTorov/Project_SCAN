@@ -3,7 +3,6 @@ import "./style.css";
 
 import logo from "../../img/SGN_09_24_2022_1663968217400 1.svg";
 import whiteLogo from "../../img/eqw_1.svg";
-import {account} from "../../moq";
 
 import Logo from "../logo";
 import Navbar from "../navbar";
@@ -13,8 +12,7 @@ import InfoTable from "../infoTable";
 import Dropdown from "../dropdown";
 
 
-function Header(){
-  const [auth, setAuth] = useState(false);
+function Header({auth, changeAuth, account}){
   const [dropdownClick, setDropdownClick] = useState(false);
 
   const imgRef = useRef();
@@ -30,10 +28,6 @@ function Header(){
       if(window.innerWidth > 768){
         setDropdownClick(false);
       }
-  }
-
-  function changeAuth(isAuth){
-    setAuth(isAuth);
   }
 
   function clickHandler(){

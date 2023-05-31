@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import "./style.css"
 import cross from "../../img/Cross.svg";
 

@@ -30,8 +30,8 @@ function Carousel(){
     window.onresize = () => selectDefaultPosition(flickity, nextBtn);
 
     flickity.on('change', index => {
-        if ((flickity.element.getBoundingClientRect().width === 860 && index == 1) ||
-            (flickity.element.getBoundingClientRect().width < 860 && index == flickity.cells.length - 1)){
+        if ((flickity.element.getBoundingClientRect().width === 860 && index === 1) ||
+            (flickity.element.getBoundingClientRect().width < 860 && index === flickity.cells.length - 1)){
             nextBtn.disabled = true;
         } else {
             nextBtn.disabled = false;
