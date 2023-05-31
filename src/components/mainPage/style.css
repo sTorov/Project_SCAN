@@ -163,6 +163,29 @@
 
 .second-main-page-section__rates-wrapper{
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     margin-bottom: 120px;
+}
+@media (max-width: 1439.98px){
+    .second-main-page-section__rates-wrapper{
+        width: 870px;
+        margin: 0 auto 120px auto;
+    }
+}
+@media (max-width: 1023.98px){
+    .second-main-page-section__rates-wrapper{
+        width: 430px;
+        justify-content: center;
+    }
+}
+@media (max-width: 1023.98px){
+    .second-main-page-section__rates-wrapper{
+        margin: 40px auto;
+    }
+}
+@media (max-width: 475px){
+    .second-main-page-section__rates-wrapper{
+        width: 100%;
+    }
 }

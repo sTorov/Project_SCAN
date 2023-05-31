@@ -6,8 +6,8 @@ function Navbar(){
   return(
     <navbar className="navbar">
       <ul className="navbar-list">
-        <li><NavLink className="navbar-link" to="/">Главная</NavLink></li>
-        <li><NavLink className="navbar-link" to="/rates">Тарифы</NavLink></li>
+        <li><NavLink className="navbar-link" to={{pathname: "/", hash: "#Home"}}>Главная</NavLink></li>
+        <li><NavLink className="navbar-link" to={{pathname: "/", hash: "#Rates"}}>Тарифы</NavLink></li>
         <li><NavLink className="navbar-link" to="/faq">FAQ</NavLink></li>
       </ul>
     </navbar>      
