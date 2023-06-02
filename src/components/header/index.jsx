@@ -13,46 +13,49 @@ import Dropdown from "../dropdown";
 
 
 function Header({auth, changeAuth, account}){
-  const [dropdownClick, setDropdownClick] = useState(false);
+  const [dropdownClick, setDropdownClick] = useState();
 
   const imgRef = useRef();
 
   useEffect(() => {
-    window.onresize = resizeWindow;
+    window.addEventListener('resize', resizeWindow);
     return () => {
-      window.onresize = null;
+      window.removeEventListener('resize', resizeWindow);
     }
-  })
+  }, [])
 
   function resizeWindow(){
-      if(window.innerWidth > 768){
-        setDropdownClick(false);
-      }
+    if(window.innerWidth > 768){
+      closeMenu(false, false);
+    }
   }
 
-  function clickHandler(){
-    setDropdownClick(!dropdownClick);
-    
+  function closeMenu(isLogoPaused, value){
+    setDropdownClick(value !== undefined ? value : !dropdownClick);
+    if(isLogoPaused){
+      pauseLogoChange();
+    }
+  }
+
+  function pauseLogoChange(){
     imgRef.current.className = "header__logo hidden";
     setTimeout(() => imgRef.current.className = "header__logo viewed", 600);
   }
 
   return(
-    <>
-      <header className={`header ${dropdownClick ? "opened" : ""}`}>
-        <div className="container">
-          <div className="header-left">
-            <Logo src={dropdownClick ? whiteLogo : logo} className="header__logo" imgRef={imgRef}/>
-            <Navbar/>
-          </div>
-          <div className="header-right">
-            {auth && <InfoTable account={account} checkClick={dropdownClick}/>}
-            {auth ? <AccountMenu onClick={changeAuth} account={account}/> : <AuthenticationMenu onClick={changeAuth}/>}
-          </div>
+    <header className={`header ${dropdownClick ? "opened" : ""}`}>
+      <div className="container">
+        <div className="header-left">
+          <Logo src={dropdownClick ? whiteLogo : logo} className="header__logo" imgRef={imgRef}/>
+          <Navbar/>
         </div>
-        <Dropdown onClick={clickHandler} changeAuth={changeAuth} isAuth={auth} isOpen={dropdownClick}/>
-      </header>
-    </>
+        <div className="header-right">
+          {auth && <InfoTable account={account} checkClick={dropdownClick}/>}
+          {auth ? <AccountMenu onClick={changeAuth} account={account}/> : <AuthenticationMenu onClick={changeAuth}/>}
+        </div>
+      </div>
+      <Dropdown onClick={closeMenu} changeAuth={changeAuth} isAuth={auth} isOpen={dropdownClick}/>
+    </header>
   )
 }
 

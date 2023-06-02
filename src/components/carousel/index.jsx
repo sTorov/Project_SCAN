@@ -23,11 +23,12 @@ function Carousel(){
 
   useEffect(() => {
     const flickity = new Flickity(carouselRef.current, flickityOptions);
-
     const nextBtn = document.querySelector(".next");
+    const windowEvent = selectDefaultPosition.bind(null, flickity, nextBtn);
 
-    window.onload = () => selectDefaultPosition(flickity, nextBtn);
-    window.onresize = () => selectDefaultPosition(flickity, nextBtn);
+    selectDefaultPosition(flickity, nextBtn);
+
+    window.addEventListener('resize', windowEvent);
 
     flickity.on('change', index => {
         if ((flickity.element.getBoundingClientRect().width === 860 && index === 1) ||
@@ -39,19 +40,14 @@ function Carousel(){
     })
 
     return () => {
-      window.onresize = null;
-      window.onload = null;
+      flickity.destroy();
+      window.removeEventListener('resize', windowEvent);
     }
   }, [])
 
   function selectDefaultPosition(flickity, nextBtn){
     flickity.select(0, false, true);
-
-    if(flickity.element.getBoundingClientRect().width === 1305){
-        nextBtn.disabled = true;
-    } else {
-        nextBtn.disabled = false;
-    }
+    nextBtn.disabled = flickity.element.getBoundingClientRect().width === 1305 ? true : false;
   }
 
   return(

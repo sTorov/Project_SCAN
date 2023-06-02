@@ -27,8 +27,6 @@ function App() {
         <Routes>
           <Route path="/" Component={() => <MainPage auth={auth} account={auth ? account : null} changeSigned={auth ? changeSigned : null}/>}/>
           <Route path="/auth" Component={() => (<div>Регистрация</div>)}/>
-          <Route path="/rates" Component={() => (<div>Тарифы</div>)}/>
-          <Route path="/faq" Component={() => (<div>FAQ</div>)}/>
         </Routes>
       </div>
 

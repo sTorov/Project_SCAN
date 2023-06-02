@@ -20,10 +20,6 @@
     background-color: #ccc;
     transition: .2s;
 }
-.navbar-link.active{
-    font-weight: 500;
-    color: #aaa;
-}
 
 @media (max-width:1000px) {
     .navbar-link{

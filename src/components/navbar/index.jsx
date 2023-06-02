@@ -1,14 +1,14 @@
 import React from "react";
-import {NavLink} from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./style.css";
 
-function Navbar(){
+function Navbar( {onClick} ){
   return(
     <navbar className="navbar">
       <ul className="navbar-list">
-        <li><NavLink className="navbar-link" to={{pathname: "/", hash: "#Home"}}>Главная</NavLink></li>
-        <li><NavLink className="navbar-link" to={{pathname: "/", hash: "#Rates"}}>Тарифы</NavLink></li>
-        <li><NavLink className="navbar-link" to="/faq">FAQ</NavLink></li>
+        <li><Link className="navbar-link" to="/" onClick={onClick}>Главная</Link></li>
+        <li><Link className="navbar-link" to="/#Rates" onClick={onClick}>Тарифы</Link></li>
+        <li><Link className="navbar-link" to="#" onClick={onClick}>FAQ</Link></li>
       </ul>
     </navbar>      
   );
