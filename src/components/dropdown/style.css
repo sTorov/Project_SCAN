@@ -37,7 +37,7 @@
 .dropdown-menu{
     padding-top: 17px;
 }
-@media (min-width: 768px){
+@media (min-width: 768.98px){
     .dropdown-menu{
         display: none;
     }

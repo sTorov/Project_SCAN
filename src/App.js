@@ -4,8 +4,9 @@ import Header from "./components/header";
 import Footer from "./components/footer";
 import MainPage from "./components/mainPage";
 
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
 import { account as moqAccount } from "./moq";
+import AccountPage from "./components/accountPage";
 
 function App() {
   const [auth, setAuth] = useState(false);
@@ -25,8 +26,10 @@ function App() {
 
       <div className="container">
         <Routes>
-          <Route path="/" Component={() => <MainPage auth={auth} account={auth ? account : null} changeSigned={auth ? changeSigned : null}/>}/>
-          <Route path="/auth" Component={() => (<div>Регистрация</div>)}/>
+          <Route path="/" element={<MainPage auth={auth} account={auth ? account : null} changeSigned={auth ? changeSigned : null}/>}/>
+          <Route path="/account/*" element={<AccountPage/>}/>
+          <Route path="/notfound" element={<div>Ресурс не найден</div>}/>
+          <Route path="*" element={<Navigate to="/notfound"/>}/>
         </Routes>
       </div>
 
