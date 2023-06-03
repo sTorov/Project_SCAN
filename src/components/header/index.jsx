@@ -1,5 +1,6 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useRef, useEffect } from "react";
 import "./style.css";
+import { useDispatch, useSelector } from "react-redux";
 
 import logo from "../../img/SGN_09_24_2022_1663968217400 1.svg";
 import whiteLogo from "../../img/eqw_1.svg";
@@ -10,10 +11,13 @@ import AccountMenu from "../accountMenu";
 import AuthenticationMenu from "../authenticationMenu";
 import InfoTable from "../infoTable";
 import Dropdown from "../dropdown";
+import { setDropdownOpen } from "../../reducers/repoReducers/flagsReducer";
 
 
-function Header({auth, changeAuth, account}){
-  const [dropdownClick, setDropdownClick] = useState();
+function Header(){
+  const { isDropdownOpen } = useSelector(state => state.flags);
+  const { isAuth } = useSelector(state => state.account);
+  const dispatch = useDispatch();
 
   const imgRef = useRef();
 
@@ -31,7 +35,7 @@ function Header({auth, changeAuth, account}){
   }
 
   function closeMenu(isLogoPaused, value){
-    setDropdownClick(value !== undefined ? value : !dropdownClick);
+    dispatch(setDropdownOpen(value !== undefined ? value : !isDropdownOpen));
     if(isLogoPaused){
       pauseLogoChange();
     }
@@ -43,18 +47,18 @@ function Header({auth, changeAuth, account}){
   }
 
   return(
-    <header className={`header ${dropdownClick ? "opened" : ""}`}>
+    <header className={`header ${isDropdownOpen ? "opened" : ""}`}>
       <div className="container">
         <div className="header-left">
-          <Logo src={dropdownClick ? whiteLogo : logo} className="header__logo" imgRef={imgRef}/>
+          <Logo src={isDropdownOpen ? whiteLogo : logo} className="header__logo" imgRef={imgRef}/>
           <Navbar/>
         </div>
         <div className="header-right">
-          {auth && <InfoTable account={account} checkClick={dropdownClick}/>}
-          {auth ? <AccountMenu onClick={changeAuth} account={account}/> : <AuthenticationMenu onClick={changeAuth}/>}
+          {isAuth && <InfoTable/>}
+          {isAuth ? <AccountMenu/> : <AuthenticationMenu/>}
         </div>
       </div>
-      <Dropdown onClick={closeMenu} changeAuth={changeAuth} isAuth={auth} isOpen={dropdownClick}/>
+      <Dropdown onClick={closeMenu}/>
     </header>
   )
 }

@@ -4,13 +4,16 @@ import "./style.css";
 
 import background_1 from "../../img/main_1.jpg";
 import background_2 from "../../img/main_2.svg";
-import { rateList } from "../../moq";
+import { rateList } from "./moq";
 
 import Carousel from "../carousel";
 import Button from "../button";
 import Rate from "../rate";
+import { useSelector } from "react-redux";
 
-function MainPage({ auth, account, changeSigned }){
+function MainPage(){
+  const { isAuth, info } = useSelector(state => state.account);
+
   const {hash, key} = useLocation();
   useEffect(()=>{
       if(hash){
@@ -28,7 +31,7 @@ function MainPage({ auth, account, changeSigned }){
         <p className="first-main-page-section__text">
           Комплексный анализ публикаций, получение данных в формате PDF на электронную почту.
         </p>
-        <Button>Запросить данные</Button>
+        {isAuth && <Button>Запросить данные</Button>}
         <img className="first-main-page-section__img" src={background_1} alt="background_1_main"/>
       </section>
       <section className="second-main-page-section">
@@ -39,7 +42,7 @@ function MainPage({ auth, account, changeSigned }){
         </div>
         <h2 id="Rates" className="main-page-subtitle">наши тарифы</h2>
         <div className="second-main-page-section__rates-wrapper">
-          {rateList.map(item => <Rate key={item.id} item={item} signed={auth ? account.signed : null} changeSigned={auth ? changeSigned : null}/>)}
+          {rateList.map(item => <Rate key={item.id} item={item} isSigned={isAuth && info.signed === item.name}/>)}
         </div>
       </section>
     </main>

@@ -1,11 +1,12 @@
 import React from "react";
 import "./style.css";
 import { Link, Navigate, Route, Routes, useLocation } from "react-router-dom";
+import Login from "../login";
 
 function AccountPage(){
   const location = useLocation();
   const partPath = location.pathname.split('/')[1];
-
+  
   return(
     <main>
       Account page
@@ -14,7 +15,7 @@ function AccountPage(){
       <Link to={`/${partPath}/register`}>Register</Link>
 
       <Routes>
-        <Route path="/login" element={<div>login</div>}/>
+        <Route path="/login" element={<Login/>}/>
         <Route path="/register" element={<div>register</div>}/>
         <Route path="*" element={<Navigate to="/notfound"/>}/>
       </Routes>

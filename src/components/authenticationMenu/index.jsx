@@ -1,13 +1,15 @@
 import React from "react";
 import "./style.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-function AuthenticationMenu({onClick}){
+function AuthenticationMenu(){
+  const navigate = useNavigate();
+
   return(
     <div className="auth-menu">
-      <Link className="auth-menu__link" to="/account/register">Зарегистрироваться</Link>
+      <Link className="auth-menu__link" to="#">Зарегистрироваться</Link>
       <div className="vr"></div>
-      <button className="auth-btn" onClick={() => onClick(true)}>Войти</button>
+      <button className="auth-btn" onClick={() => navigate("/account/login")}>Войти</button>
     </div>
   );
 }

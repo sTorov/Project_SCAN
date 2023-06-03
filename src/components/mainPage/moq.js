@@ -1,16 +1,6 @@
-import photo from "./img/avatar.jpg";
-
-import icon_1 from "./img/rate_icon_1.svg";
-import icon_2 from "./img/rate_icon_2.svg";
-import icon_3 from "./img/rate_icon_3.svg";
-
-export const account = {
-  name: "Алексей А.",
-  usedComp: 34,
-  limitComp: 100,
-  photo: photo,
-  signed: "Beginner",
-}
+import icon_1 from "../../img/rate_icon_1.svg";
+import icon_2 from "../../img/rate_icon_2.svg";
+import icon_3 from "../../img/rate_icon_3.svg";
 
 export const rateList = [
   {
