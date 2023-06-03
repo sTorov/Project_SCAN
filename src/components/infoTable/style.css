@@ -7,28 +7,22 @@
     width: 175px;
     height: 63px;
     padding: 13px 8px;
-    margin-right: 20%;
-}
-@media (max-width:1200px) {
-    .account-menu__table{
-        margin-right: 15%;
-    }
+    margin: 0 auto;
 }
 @media (max-width:1000px) {
     .account-menu__table{
         width: 132px;
-        margin-right: 13%;
     }
 }
 @media (max-width:768px) {
     .account-menu__table{
-        margin-right: 50%;
+        margin-right: 75px;
     }
 }
 @media (max-width: 375px){
     .account-menu__table{
         width: 123px;
-        margin-right: 43%;
+        margin: 0 0 0 2%;
     }
 }
 

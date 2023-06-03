@@ -5,6 +5,8 @@ import { setObserveInfoLoaded } from "../../reducers/repoReducers/flagsReducer";
 import api from "../../http";
 import "./style.css";
 
+import Loader from "../loader";
+
 function InfoTable(){
   const { isObserveInfoLoaded, isDropdownOpen } = useSelector(state => state.flags);
   const info = useSelector(state => state.observeInfo);
@@ -33,7 +35,7 @@ function InfoTable(){
           </div>
         </>
         :
-        <p>Загрузка...</p>}
+        <Loader/>}
     </div>
   );
 }

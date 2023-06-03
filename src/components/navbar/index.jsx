@@ -7,7 +7,7 @@ function Navbar( {onClick} ){
     <navbar className="navbar">
       <ul className="navbar-list">
         <li><Link className="navbar-link" to="/" onClick={onClick}>Главная</Link></li>
-        <li><Link className="navbar-link" to="/#Rates" onClick={onClick}>Тарифы</Link></li>
+        <li><Link className="navbar-link" to="#" onClick={onClick}>Тарифы</Link></li>
         <li><Link className="navbar-link" to="#" onClick={onClick}>FAQ</Link></li>
       </ul>
     </navbar>      

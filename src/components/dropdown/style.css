@@ -14,6 +14,11 @@
         display: inline-block;
     }
 }
+@media(max-width: 375px){
+    .dropdown-btn{
+        right: 18px;
+    }
+}
 .dropdown-btn:hover{
     cursor: pointer;
 }

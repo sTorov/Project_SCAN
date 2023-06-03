@@ -1,5 +1,4 @@
-import React, { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import React from "react";
 import "./style.css";
 
 import background_1 from "../../img/main_1.jpg";
@@ -10,24 +9,15 @@ import Carousel from "../carousel";
 import Button from "../button";
 import Rate from "../rate";
 import { useSelector } from "react-redux";
+import Title from "../title";
 
 function MainPage(){
   const { isAuth, info } = useSelector(state => state.account);
 
-  const {hash, key} = useLocation();
-  useEffect(()=>{
-      if(hash){
-          const targetElement = document.getElementById(hash.substring(1))
-          targetElement?.scrollIntoView({behavior: 'smooth'})
-      }
-  }, [key, hash])
-
   return(
     <main>
       <section className="first-main-page-section">
-        <h1 id="Home" className="main-page-title">
-          сервис по поиску публикаций<br/> о компании<br/> по его ИНН
-        </h1>
+        <Title type="title">сервис по поиску публикаций<br/> о компании<br/> по его ИНН</Title>
         <p className="first-main-page-section__text">
           Комплексный анализ публикаций, получение данных в формате PDF на электронную почту.
         </p>
@@ -35,12 +25,12 @@ function MainPage(){
         <img className="first-main-page-section__img" src={background_1} alt="background_1_main"/>
       </section>
       <section className="second-main-page-section">
-        <h2 className="main-page-subtitle">почему именно мы</h2>
+        <Title type="subtitle">почему именно мы</Title>
         <Carousel/>
         <div className="image-wrapper">
           <img className="second-main-page-section__img" src={background_2} alt="background_2_main"/>
         </div>
-        <h2 id="Rates" className="main-page-subtitle">наши тарифы</h2>
+        <Title type="subtitle">наши тарифы</Title>
         <div className="second-main-page-section__rates-wrapper">
           {rateList.map(item => <Rate key={item.id} item={item} isSigned={isAuth && info.signed === item.name}/>)}
         </div>

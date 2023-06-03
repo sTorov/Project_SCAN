@@ -36,33 +36,6 @@
     }
 }
 
-.main-page-title{
-    font-family: "Ferry", sans-serif;
-    font-size: 60px;
-    margin: 25px 0;
-    width: 16ch;
-}
-@media (max-width: 1300px){
-    .main-page-title{
-        font-size: 50px;
-    }
-}
-@media (max-width: 1150px){
-    .main-page-title{
-        font-size: 40px;
-    }
-}
-@media (max-width: 530px){
-    .main-page-title{
-        font-size: 28px;
-    }
-}
-@media (max-width: 375px) {
-    .main-page-title{
-        font-size: 22px;
-    }
-}
-
 .first-main-page-section__text{
     font-size: 20px;
     width: 530px;
@@ -96,38 +69,8 @@
     }
 }
 
-.main-page-subtitle{
-    font-family: 'Ferry', sans-serif;
-    font-size: 45px;
-    letter-spacing: 1px;
-    margin-bottom: 70px;
-}
-@media (max-width: 1150px){
-    .main-page-subtitle{
-        font-size: 35px;
-        margin-bottom: 50px;
-    }
-}
-@media (max-width: 768px){
-    .main-page-subtitle{
-        margin-bottom: 10px;
-    }
-}
-@media (max-width: 530px){
-    .main-page-subtitle{
-        font-size: 28px;
-    }
-}
-@media (max-width: 400px){
-    .main-page-subtitle{
-        width: 274px;
-    }
-}
-@media (max-width: 375px) {
-    .main-page-subtitle{
-        font-size: 22px;
-        width: 225px;
-    }
+.first-main-page-section .title{
+    width: 16ch;
 }
 
 .carousel{
