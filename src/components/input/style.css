@@ -1,0 +1,37 @@
+.label{
+    display: block;
+    min-height: 100px;
+}
+
+.label-text{
+    display: block;
+    color: #949494;
+    margin-bottom: 15px;
+}
+
+.input{
+    width: 100%;
+    font-size: 16px;
+    padding: 12px 15px;
+    border: 1px solid #C7C7C7;
+    outline: none;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.05);
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+.input:invalid{
+    color: #FF5959;
+    border-color: #FF5959;
+}
+
+.error-message{
+    display: none;
+    text-align: center;
+    font-size: 12px;
+    color: #FF5959;
+}
+
+.input:invalid + .error-message{
+    display: block;
+}

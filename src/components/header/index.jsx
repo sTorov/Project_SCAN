@@ -53,7 +53,7 @@ function Header(){
           <Logo src={isDropdownOpen ? whiteLogo : logo} className="header__logo" imgRef={imgRef}/>
           <Navbar/>
         </div>
-        <div className="header-right">
+        <div className={`header-right ${isAuth ? "d-flex-sb" : "d-flex-e"}`}>
           {isAuth && <InfoTable/>}
           {isAuth ? <AccountMenu/> : <AuthenticationMenu/>}
         </div>

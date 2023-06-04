@@ -58,3 +58,8 @@
         width: 225px;
     }
 }
+
+.auth-title{
+    font-family: "Ferry", sans-serif;
+    font-size: 40px;
+}

@@ -1,0 +1,16 @@
+.first-account-manager-page-section{
+    display: flex;
+    position: relative;
+    margin-bottom: 80px;
+}
+
+.first-account-manager-page-section .auth-title{
+    max-width: 790px;
+    margin-right: 40px;
+}
+
+.first-account-manager-page-section__img{
+    position: absolute;
+    bottom: 45px;
+    left: 100px;
+}

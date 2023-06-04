@@ -40,13 +40,19 @@
 
 .header-right{
     display: flex;
-    justify-content: space-between;
     width: 40%;
 }
 @media (max-width: 768px){
     .header-right{
         width: 100%;
     }
+}
+
+.d-flex-sb{
+    justify-content: space-between;
+}
+.d-flex-e{
+    justify-content: end;
 }
 
 .header__logo.hidden{
