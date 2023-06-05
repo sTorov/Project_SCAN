@@ -21,15 +21,21 @@ function MainPage(){
         <p className="first-main-page-section__text">
           Комплексный анализ публикаций, получение данных в формате PDF на электронную почту.
         </p>
+
         {isAuth && <Button>Запросить данные</Button>}
+        
         <img className="first-main-page-section__img" src={background_1} alt="background_1_main"/>
       </section>
+
       <section className="second-main-page-section">
         <Title type="subtitle">почему именно мы</Title>
+
         <Carousel/>
+        
         <div className="image-wrapper">
           <img className="second-main-page-section__img" src={background_2} alt="background_2_main"/>
         </div>
+        
         <Title type="subtitle">наши тарифы</Title>
         <div className="second-main-page-section__rates-wrapper">
           {rateList.map(item => <Rate key={item.id} item={item} isSigned={isAuth && info.signed === item.name}/>)}

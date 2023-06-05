@@ -1,6 +1,7 @@
 import React from "react";
 import "./style.css";
 import { Link, Navigate, Route, Routes, useLocation } from "react-router-dom";
+import icon from "../../img/account_page_icon.svg";
 
 import Login from "../login";
 
@@ -10,6 +11,7 @@ function Form(){
 
   return(
     <div className="form">
+      <img className="form-icon" src={icon} alt="form_icon"/>
       <div className="form-header">
         <Link className="form-link" to={`/${partPath}/login`}>Войти</Link>
         <Link className="form-link disabled" to="#">Зарегистрироваться</Link>

@@ -120,10 +120,6 @@
     .second-main-page-section__rates-wrapper{
         width: 430px;
         justify-content: center;
-    }
-}
-@media (max-width: 1023.98px){
-    .second-main-page-section__rates-wrapper{
         margin: 40px auto;
     }
 }

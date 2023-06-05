@@ -1,16 +1,40 @@
 .first-account-manager-page-section{
     display: flex;
+    justify-content: space-between;
     position: relative;
     margin-bottom: 80px;
 }
+@media (max-width: 1023.98px) {
+    .first-account-manager-page-section{
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 80px;
+    }
+}
 
-.first-account-manager-page-section .auth-title{
-    max-width: 790px;
-    margin-right: 40px;
+.first-account-manager-page-section .other-title{
+    max-width: 24ch;
+    margin-right: 60px;
+    align-self: baseline;
+}
+@media (max-width: 1023.98px) {
+    .first-account-manager-page-section .other-title{
+        align-self: center;
+        margin: 0 0 126px 0;
+    }
 }
 
 .first-account-manager-page-section__img{
     position: absolute;
+    max-width: 322px;
+    width: 100%;
     bottom: 45px;
     left: 100px;
+}
+@media (max-width: 1023.98px) {
+    .first-account-manager-page-section__img{
+        position: static;
+        width: 100%;
+        margin: 0 auto;
+    }
 }

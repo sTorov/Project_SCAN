@@ -8,6 +8,11 @@
     color: #949494;
     margin-bottom: 15px;
 }
+@media (max-width: 425px) {
+    .label-text{
+        font-size: 14px;
+    }
+}
 
 .input{
     width: 100%;
@@ -20,18 +25,14 @@
     margin-bottom: 5px;
 }
 
-.input:invalid{
+.input.invalid{
     color: #FF5959;
     border-color: #FF5959;
 }
 
 .error-message{
-    display: none;
+    display: block;
     text-align: center;
     font-size: 12px;
     color: #FF5959;
-}
-
-.input:invalid + .error-message{
-    display: block;
 }
