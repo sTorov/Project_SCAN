@@ -1,0 +1,8 @@
+.search-form .label-text{
+    color: black;
+    font-size: 18px;
+}
+
+.search-form .label-text.required::after{
+    font-size: 25px;
+}

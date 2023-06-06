@@ -10,9 +10,11 @@ import Button from "../button";
 import Rate from "../rate";
 import { useSelector } from "react-redux";
 import Title from "../title";
+import { useNavigate } from "react-router-dom";
 
 function MainPage(){
   const { isAuth, info } = useSelector(state => state.account);
+  const navigate = useNavigate();
 
   return(
     <main>
@@ -22,7 +24,7 @@ function MainPage(){
           Комплексный анализ публикаций, получение данных в формате PDF на электронную почту.
         </p>
 
-        {isAuth && <Button>Запросить данные</Button>}
+        {isAuth && <Button onClick={() => navigate("/search")}>Запросить данные</Button>}
         
         <img className="first-main-page-section__img" src={background_1} alt="background_1_main"/>
       </section>

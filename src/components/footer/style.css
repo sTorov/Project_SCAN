@@ -1,7 +1,10 @@
 .footer{
     height: 137px;
+    width: 100%;
     background-color: var(--turquoise-color);
     color: var(--white-color);
+    position: absolute;
+    bottom: 0;
 }
 
 .footer__info{

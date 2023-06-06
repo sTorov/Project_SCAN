@@ -40,7 +40,7 @@ function Dropdown({onClick}){
         {isAuth ? <div className="wrapper">
                     <button className="auth-btn dropdown-cancel-btn" type="button" onClick={logout}>Выйти</button>
                   </div>
-                : <AuthenticationMenu/>}
+                : <AuthenticationMenu onClick={() => onClick(true, false)}/>}
       </div>
     </>
   );

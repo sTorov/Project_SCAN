@@ -59,14 +59,10 @@ function Login(){
                             <span className="error-message">Неверный логин или(и) пароль</span>
                           </div>}
 
-        <Input error="Введите корректные данные" onChange={e => onChangeLogin(e.target.value)} 
-          value={login} valid={validLogin === null ? true : validLogin}>
-            Логин или номер телефона:
-        </Input>
-        <Input type="password" error="Введите пароль" onChange={e => onChangePassword(e.target.value)} 
-          value={password} valid={validPassword === null ? true : validPassword}>
-            Пароль:
-        </Input>
+        <Input error="Введите корректные данные" label="Логин или номер телефона:" 
+          onChange={e => onChangeLogin(e.target.value)} value={login} valid={validLogin === null ? true : validLogin}/>
+        <Input type="password" error="Введите пароль" label="Пароль:"
+          onChange={e => onChangePassword(e.target.value)} value={password} valid={validPassword === null ? true : validPassword}/>
         
         <Button onClick={sigin} disabled={!(validPassword && validLogin)}>Войти</Button>
         
