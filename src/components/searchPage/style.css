@@ -1,10 +1,17 @@
 .main-search-page{
-    display: flex;
     position: relative;
 }
 
+.search-page-wrapper{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
 .search-page-info-block{
-    width: 70%;
+    flex-basis: 872px;
+    max-width: 1000px;
+    flex-grow: 1;
 }
 
 .main-search-page .other-title{
@@ -12,11 +19,61 @@
     margin-bottom: 25px;
     letter-spacing: .03em;
 }
+@media (max-width: 1350px){
+    .main-search-page .other-title{
+        font-size: 40px;
+    }
+}
+@media (max-width: 1240px){
+    .main-search-page .other-title{
+        font-size: 35px;
+    }
+}
+@media (max-width: 1100px){
+    .main-search-page .other-title{
+        font-size: 30px;
+    }
+}
+@media (max-width: 768px){
+    .main-search-page .other-title{
+        margin-bottom: 20px;
+        width: 85%;
+    }
+}
+@media (max-width: 425px) {
+    .main-search-page .other-title{
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 375px) {
+    .main-search-page .other-title{
+        width: 100%;
+        font-size: 26px;
+    }
+}
+
 
 .search-page__text{
     font-size: 20px;
     margin-bottom: 47px;
     letter-spacing: .02em;
+}
+@media (max-width: 1000px) {
+    .search-page__text{
+        font-size: 18px;
+    }
+}
+@media (max-width: 768px){
+    .search-page__text{
+        margin-bottom: 20px;
+        width: 80%;
+    }
+}
+@media (max-width: 375px){
+    .search-page__text{
+        width: 95%;
+    }
 }
 
 .folders-img{
@@ -24,22 +81,67 @@
     right: 15px;
     top: 85px;
 }
+@media(max-width: 1000px){
+    .folders-img{
+        display: none;
+    }
+}
 
 .document-img{
     position: absolute;
     right: 285px;
     top: 62px;
 }
+@media (max-width: 1000px) {
+    .document-img{
+        right: 0;
+        top: 30px;
+    }
+}
+@media (max-width: 768px) {
+    .document-img{
+        width: 52px;
+        top: 45px;
+    }
+}
+@media (max-width: 599px) {
+    .document-img{
+        top: 75px;
+    }
+}
+@media (max-width: 578px) {
+    .document-img{
+        top: 110px;
+    }
+}
+@media (max-width: 375px) {
+    .document-img{
+        display: none;
+    }
+}
 
 .search-page-bg{
     max-height: 470px;
-    width: 122%;
+    position: relative;
+    left: 60px;
+}
+@media (max-width: 768px){
+    .search-page-bg{
+        position: static;
+        width: 100%;
+    }
 }
 
 .main-search-page .image-wrapper{
     overflow: initial;
     align-self: end;
-    width: 30%;
+    flex-basis: 440px;
+    max-width: 500px;
+    flex-grow: 1;
     margin-bottom: 70px;
-    padding-left: 60px;
+}
+@media (max-width: 768px){
+    .main-search-page .image-wrapper{
+        margin-bottom: 24px;
+    }
 }
