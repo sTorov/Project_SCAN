@@ -1,0 +1,45 @@
+.main-search-page{
+    display: flex;
+    position: relative;
+}
+
+.search-page-info-block{
+    width: 70%;
+}
+
+.main-search-page .other-title{
+    width: 21ch;
+    margin-bottom: 25px;
+    letter-spacing: .03em;
+}
+
+.search-page__text{
+    font-size: 20px;
+    margin-bottom: 47px;
+    letter-spacing: .02em;
+}
+
+.folders-img{
+    position: absolute;
+    right: 15px;
+    top: 85px;
+}
+
+.document-img{
+    position: absolute;
+    right: 285px;
+    top: 62px;
+}
+
+.search-page-bg{
+    max-height: 470px;
+    width: 122%;
+}
+
+.main-search-page .image-wrapper{
+    overflow: initial;
+    align-self: end;
+    width: 30%;
+    margin-bottom: 70px;
+    padding-left: 60px;
+}

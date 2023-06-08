@@ -1,0 +1,24 @@
+input[type="date"]::-webkit-calendar-picker-indicator{
+    opacity: 0;
+    cursor: pointer;
+}
+
+.date{
+    cursor: pointer;
+}
+
+.data-range-wrapper{
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    min-height: 70px;
+}
+
+.error-message__wrapper {
+    width: 100%;
+    top: 53px;
+}
+
+.data-range-wrapper .select-wrapper{
+    height: min-content;
+}

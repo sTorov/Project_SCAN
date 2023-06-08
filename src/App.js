@@ -28,6 +28,7 @@ function App() {
           <Route path="/" element={<MainPage/>}/>
           <Route path="/account/*" element={<AccountManagerPage/>}/>
           <Route path="/search" element={isAuth ? <SearchPage/> : <Navigate to="/"/>}/>
+          <Route path="/result" element={isAuth ? <div>RESULT</div> : <Navigate to="/"/>}/>
           <Route path="/notfound" element={<div>Ресурс не найден</div>}/>
           <Route path="*" element={<Navigate to="/notfound"/>}/>
         </Routes>

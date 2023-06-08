@@ -32,6 +32,7 @@
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.05);
     border-radius: 5px;
     margin-bottom: 5px;
+    background-color: transparent;
 }
 
 .input.invalid{
@@ -63,4 +64,5 @@
     border-top: 10px solid #D9D9D9;
     border-right: 10px solid transparent;
     border-left: 10px solid transparent;
+    z-index: -1;
 }
