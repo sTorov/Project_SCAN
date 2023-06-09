@@ -1,15 +1,14 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { write } from "../../reducers/repoReducers/observeInfoReducer";
-import { setObserveInfoLoaded } from "../../reducers/repoReducers/flagsReducer";
+import { setObserveInfoLoaded, write } from "../../reducers/repoReducers/observeInfoReducer";
 import api from "../../http";
 import "./style.css";
 
 import Loader from "../loader";
 
 function InfoTable(){
-  const { isObserveInfoLoaded, isDropdownOpen } = useSelector(state => state.flags);
-  const info = useSelector(state => state.observeInfo);
+  const { isDropdownOpen } = useSelector(state => state.flags);
+  const { isObserveInfoLoaded, data } = useSelector(state => state.observeInfo);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -27,11 +26,11 @@ function InfoTable(){
         <>
           <div>
             <p className="account-menu__table__text">Использовано компаний</p>
-            <p className="account-menu__table__number">{info.usedCompanyCount}</p>
+            <p className="account-menu__table__number">{data.usedCompanyCount}</p>
           </div>
           <div>
             <p className="account-menu__table__text">Лимит по компаниям</p>
-            <p className="account-menu__table__number">{info.companyLimit}</p>
+            <p className="account-menu__table__number">{data.companyLimit}</p>
           </div>
         </>
         :

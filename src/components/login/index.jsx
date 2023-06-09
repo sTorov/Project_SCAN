@@ -1,11 +1,10 @@
-import React, { useRef } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import "./style.css";
 
 import { setAuth } from "../../reducers/repoReducers/accountReducer";
-import { writeLogin, writePassword } from "../../reducers/repoReducers/loginDataReducer";
-import { setValidLogin, setValidPassword, setIsAuthDenied } from "../../reducers/repoReducers/flagsReducer";
+import { writeLogin, writePassword, setValidLogin, setValidPassword, setIsAuthDenied } from "../../reducers/repoReducers/loginDataReducer";
 import api from "../../http";
 
 import logo_1 from "../../img/sign_in_icon_btn_1.svg";
@@ -17,14 +16,12 @@ import Input from "../input";
 import { ValidateService } from "../../services/validateService";
 
 function Login(){
-    const { login, password } = useSelector(state => state.loginData);
-    const { validLogin, validPassword, isAuthDenied } = useSelector(state => state.flags);
+    const { validLogin, validPassword, isAuthDenied, data } = useSelector(state => state.loginData);
     const dispatch = useDispatch();
     const navigator = useNavigate();
-    let checkAccount = true;
 
     function sigin(){
-        api.post("/v1/account/login", {login, password})
+        api.post("/v1/account/login", {login: data.login, password: data.password})
         .then(res => {
           if(res.status === 200){
             localStorage.setItem('token', res.data.accessToken);
@@ -60,9 +57,9 @@ function Login(){
                           </div>}
 
         <Input error="Введите корректные данные" label="Логин или номер телефона:" 
-          onChange={e => onChangeLogin(e.target.value)} value={login} valid={validLogin === null ? true : validLogin}/>
+          onChange={e => onChangeLogin(e.target.value)} value={data.login} valid={validLogin === null ? true : validLogin}/>
         <Input type="password" error="Введите пароль" label="Пароль:"
-          onChange={e => onChangePassword(e.target.value)} value={password} valid={validPassword === null ? true : validPassword}/>
+          onChange={e => onChangePassword(e.target.value)} value={data.password} valid={validPassword === null ? true : validPassword}/>
         
         <Button onClick={sigin} disabled={!(validPassword && validLogin)}>Войти</Button>
         

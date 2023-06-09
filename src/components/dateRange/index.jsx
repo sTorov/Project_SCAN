@@ -1,20 +1,34 @@
 import React from "react";
 import "./style.css";
+import { useSelector } from "react-redux";
 
-function DateRange({error, valid, label, onChange, required}){
+function DateRange({error, valid, label, onChangeStart, onChangeEnd, required}){
+  const { data } = useSelector(state => state.search);
+
   let startDateInput;
   let endDateInput;
   
-  function clickHandler(elem){
+  function showPicker(elem){
       if(elem.type !== "date"){
           elem.type = "date";
-          const date = new Date();
-          const month = date.getMonth() + 1;
-          const year = date.getFullYear();
-          const day = date.getDate();
-          elem.value = `${year}-${`${month < 10 ? "0" : ""}${month}`}-${`${day < 10 ? "0" : ""}${day}`}`;
+          elem.value = getValueDate();;
       }
       elem.showPicker();
+  }
+
+  function getValueDate(string){
+    const date = string === undefined ? new Date() : new Date(string);
+    const month = date.getMonth() + 1;
+    const year = date.getFullYear();
+    const day = date.getDate();
+    return `${year}-${`${month < 10 ? "0" : ""}${month}`}-${`${day < 10 ? "0" : ""}${day}`}`;
+  }
+
+  function clickHandler(event, input, value, func){
+    showPicker(input);
+    if(value === null || event.target.value === ''){
+      func(event.target.value);
+    }
   }
 
   return(
@@ -22,12 +36,14 @@ function DateRange({error, valid, label, onChange, required}){
       <span className={`label-text ${required ? "required" : ""} ${required && valid ? "" : "invalid"}`}>{label}</span>
       <div className="data-range-wrapper">
         <div className="select-wrapper">
-         <input type="text" className={`input date ${valid ? "" : "invalid"}`} ref={el => startDateInput = el} placeholder="Дата начала" onChange={onChange} 
-           onClick={() => clickHandler(startDateInput)}/>
+         <input type={data.dateStart === null ? "text" : "date"} className={`input date ${valid ? "" : "invalid"}`} ref={el => startDateInput = el} placeholder="Дата начала" 
+           onClick={e => clickHandler(e, startDateInput, data.dateStart, onChangeStart)} onChange={e => onChangeStart(e.target.value)} 
+           defaultValue={data.dateStart === null ? null : getValueDate(data.dateStart)}/>
         </div>
         <div className="select-wrapper">
-          <input type="text" className={`input date ${valid ? "" : "invalid"}`} ref={el => endDateInput = el} placeholder="Дата конца" onChange={onChange}
-            onClick={() => clickHandler(endDateInput)}/>
+          <input type={data.dateEnd === null ? "text" : "date"} className={`input date ${valid ? "" : "invalid"}`} ref={el => endDateInput = el} placeholder="Дата конца"
+            onClick={e => clickHandler(e, endDateInput, data.dateEnd, onChangeEnd)} onChange={e => onChangeEnd(e.target.value)}
+            defaultValue={data.dateEnd === null ? null : getValueDate(data.dateEnd)}/>
         </div>
         {!valid && <div className="error-message__wrapper">
                       <span className="error-message">{error}</span>
