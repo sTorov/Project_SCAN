@@ -18,19 +18,19 @@ const SET_EXCLUDE_DIGESTS = "SET_EXCLUDE_DIGESTS";
 
 const initialState = {
     data: {
-        inn: null,
-        countDoc: null,
-        dateStart: null,
-        dateEnd: null,
+        inn: 7710137066,  //null
+        countDoc: 1000,   //null
+        dateStart: "2019-01-01T00:00:00+03:00", //null
+        dateEnd: "2022-08-31T23:59:59+03:00", //null
         tonality: "any", /* negative, positive */
-        inBusinessNews: false, /* null, true */
-        onlyMainRole: false,
-        onlyWithRiskFactors: false,
-        maxFullness: false,
+        inBusinessNews: null, /* null */   //false 
+        onlyMainRole: true, //false
+    onlyWithRiskFactors: false,     //false
+        maxFullness: true,  //false
         // "attributeFilters"
-        excludeTechNews: true,
-        excludeAnnouncements: true,
-        excludeDigests: true
+        excludeTechNews: true,  //true
+        excludeAnnouncements: true,     //true
+        excludeDigests: true        //true
     },
     validCountDoc: null,
     validINN: null,

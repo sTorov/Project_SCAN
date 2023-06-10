@@ -9,6 +9,7 @@ import SearchPage from "./components/searchPage";
 
 import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
 import { setAuth } from "./reducers/repoReducers/accountReducer";
+import ResultPage from "./components/resultPage";
 
 function App() {
   const { isAuth } = useSelector(state => state.account);
@@ -28,7 +29,7 @@ function App() {
           <Route path="/" element={<MainPage/>}/>
           <Route path="/account/*" element={<AccountManagerPage/>}/>
           <Route path="/search" element={isAuth ? <SearchPage/> : <Navigate to="/"/>}/>
-          <Route path="/result" element={isAuth ? <div>RESULT</div> : <Navigate to="/"/>}/>
+          <Route path="/result" element={isAuth ? <ResultPage/> : <Navigate to="/"/>}/>
           <Route path="/notfound" element={<div>Ресурс не найден</div>}/>
           <Route path="*" element={<Navigate to="/notfound"/>}/>
         </Routes>

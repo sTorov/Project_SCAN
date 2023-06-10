@@ -5,6 +5,7 @@ import { observeInfo } from "./repoReducers/observeInfoReducer";
 import { flags } from "./repoReducers/flagsReducer";
 import { loginData } from "./repoReducers/loginDataReducer";
 import { search } from "./repoReducers/searchReducer";
+import { result } from "./repoReducers/resultReducer";
 
 export const reducers = combineReducers({
     account,
@@ -12,4 +13,5 @@ export const reducers = combineReducers({
     flags,
     loginData,
     search,
+    result,
 });
