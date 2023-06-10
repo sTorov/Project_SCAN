@@ -10,7 +10,9 @@ function Input({children, error, label, type, onChange, value, valid, required, 
           type === "select"
             ?
               <div className="select-wrapper">
-                <select className={`select input ${valid ? "" : "invalid"}`} onChange={onChange} placeholder={placeholder}>{children}</select>
+                <select className={`select input ${valid ? "" : "invalid"}`} onChange={onChange} value={value}>
+                  {children}
+                </select>
               </div>
             :
               <input className={`input ${valid ? "" : "invalid"}`} type={type === "password" ? "password" : "text"} 
