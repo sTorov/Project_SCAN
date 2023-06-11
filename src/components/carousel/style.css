@@ -26,45 +26,45 @@
         width: 280px;
     }
 }
-.flickity-enabled{
+.wrapper-carousel .flickity-enabled{
     position: static;
 }
 
-.flickity-prev-next-button {
+.wrapper-carousel .flickity-prev-next-button {
     background-color: transparent;
     opacity: .4;
     transition: .2s;
 }
 
-.flickity-prev-next-button:hover {
+.wrapper-carousel .flickity-prev-next-button:hover {
     background-color: transparent;
     opacity: 1;
     transition: .2s;
 }
 
-.flickity-prev-next-button.previous {
+.wrapper-carousel .flickity-prev-next-button.previous {
     left: -15px;
 }
 
-.flickity-prev-next-button.next {
+.wrapper-carousel .flickity-prev-next-button.next {
     right: -15px;
 }
 
 @media (max-width: 1439px) {
-    .flickity-prev-next-button.previous {
+    .wrapper-carousel .flickity-prev-next-button.previous {
         left: -35px;
     }
     
-    .flickity-prev-next-button.next {
+    .wrapper-carousel .flickity-prev-next-button.next {
         right: -35px;
     }
 }
 @media (max-width: 400px) {
-    .flickity-prev-next-button.previous {
+    .wrapper-carousel .flickity-prev-next-button.previous {
         left: -25px;
     }
     
-    .flickity-prev-next-button.next {
+    .wrapper-carousel .flickity-prev-next-button.next {
         right: -25px;
     }
 }

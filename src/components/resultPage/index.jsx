@@ -3,7 +3,11 @@ import "./style.css";
 import api from "../../http";
 import { useDispatch, useSelector } from "react-redux";
 import { writeInfoDocAndRisk, writeIds, writeLastLoadedDocs, setIsLoaded, setLastIndexDocLoaded } from "../../reducers/repoReducers/resultReducer";
+import background from "../../img/result-page-img.svg";
+
 import Button from "../button";
+import Title from "../title";
+import ResultSlider from "../resultSlider";
 
 function ResultPage(){
   const { data } = useSelector(state => state.search);
@@ -80,6 +84,7 @@ function ResultPage(){
           });
 
           dispatch(writeInfoDocAndRisk(docAndRisks));
+          dispatch(setIsLoaded(true));
         }
       )
       .catch(error => console.log(error));
@@ -111,9 +116,7 @@ function ResultPage(){
     for (let index = lastIndexDocLoaded; index < lastIndex; index++) {
         loadedDocIds.push(array[index]);        
     }
-
-    console.log(loadedDocIds, lastIndex, lastIndexDocLoaded, array.length)
-    
+   
     api.post("/v1/documents", { ids: loadedDocIds })
     .then(res => {
         res.data.forEach(item => {
@@ -128,10 +131,27 @@ function ResultPage(){
   
   return(
       <main>
-        <Button onClick={() => getLastLoadedDoc(docData.ids)}>Click {lastIndexDocLoaded} {docData.ids.length}</Button>
-        {
-            lastLoadedDocs.map((item, index) => (<p key={index}>{`${item.id}\n`}</p>))
-        }
+        <div className="result-page__header">
+          <div className="result-page__header__title-block">
+            <Title type="other-title">Ищем. Скоро будут результаты</Title>
+            <p className="result-page__text">
+              Поиск может занять некоторое время, просим сохранять терпение.  
+            </p>
+          </div>
+          <div className="result-page__header__img-wrapper">
+            <img className="result-page__header__img" src={background} alt="result-page-img"/>
+          </div>
+        </div>
+        <div className="result-page__carousel-block">
+          <Title type="other-subtitle">Общая сводка</Title>
+          <p className="result-page__carousel-block__text">
+            Найдено {docData.infoDocAndRisk.reduce((sum, value) => sum + value.countDoc, 0)} вариантов
+          </p>
+          <ResultSlider data={docData.infoDocAndRisk}/>
+        </div>
+        <div className="result-page__docs-block">
+          <Title type="other-subtitle">Список документов</Title>
+        </div>
       </main>
   )
 }

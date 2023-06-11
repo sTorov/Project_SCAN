@@ -90,3 +90,11 @@
         font-size: 20px;
     }
 }
+
+
+.other-subtitle{
+    font-family: 'Ferry', sans-serif;
+    font-size: 30px;
+    letter-spacing: .02em;
+    margin-bottom: 17px;
+}

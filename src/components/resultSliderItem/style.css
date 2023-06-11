@@ -1,0 +1,22 @@
+.result-slider__item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    border-right: 2px solid rgba(148, 148, 148, .4);
+    height: max-content;
+    min-width: 139px;
+}
+
+.result-slider__item p{
+    font-size: 18px;
+    letter-spacing: .02em;
+}
+
+.result-slider__item p:nth-child(1){
+    margin-bottom: 29px;
+}
+.result-slider__item p:nth-child(2){
+    margin-bottom: 23px;
+}

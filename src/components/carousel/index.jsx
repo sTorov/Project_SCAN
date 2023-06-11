@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import Flickity from "flickity";
 
-import "flickity/dist/flickity.min.css"
 import "./style.css";
 
 import icon_1 from "../../img/main_carousel_1.svg";
