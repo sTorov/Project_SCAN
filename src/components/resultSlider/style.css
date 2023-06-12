@@ -39,3 +39,7 @@
 .result-slider__wrapper .previous{
     left: -176px;
 }
+
+.flickity-viewport{
+    height: 116.8px;
+}

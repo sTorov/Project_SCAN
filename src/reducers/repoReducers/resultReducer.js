@@ -4,6 +4,8 @@ const APPEND_LOADED_DOCS = "APPEND_LOADED_DOCS";
 const SET_IS_LOADED = "SET_IS_LOADED";
 const SET_LAST_INDEX_DOC_LOADED = "SET_LAST_INDEX_DOC_LOADED";
 
+const RESET_DATA = "RESET_DATA";
+
 const initialState = {
     docData: {
         infoDocAndRisk: [],
@@ -64,6 +66,8 @@ function result(state = initialState, action){
                 loadedDocs: [ ...state.loadedDocs ],
                 lastIndexDocLoaded: action.payload
             }
+        case RESET_DATA:
+            return initialState;
         default:
             return state;
     }
@@ -74,5 +78,7 @@ export const writeIds = (value) => ({type: WRITE_IDS, payload: value});
 export const appendLoadedDocs = (value) => ({type: APPEND_LOADED_DOCS, payload: value});
 export const setIsLoaded = (value) => ({type: SET_IS_LOADED, payload: value});
 export const setLastIndexDocLoaded = (value) => ({type: SET_LAST_INDEX_DOC_LOADED, payload: value});
+
+export const resetData = () => ({type: RESET_DATA});
 
 export { result }

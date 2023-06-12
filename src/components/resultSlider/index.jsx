@@ -5,6 +5,7 @@ import ResultSliderItem from "../resultSliderItem";
 import Loader from "../loader";
 
 const flickityOptions = {
+  setGallerySize: false,
   draggable: false,
   pageDots: false,
   prevNextButtons: true,

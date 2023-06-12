@@ -2,17 +2,20 @@ import React, { useEffect } from "react";
 import "./style.css";
 import api from "../../http";
 import { useDispatch, useSelector } from "react-redux";
-import { writeInfoDocAndRisk, writeIds, appendLoadedDocs, setIsLoaded, setLastIndexDocLoaded } from "../../reducers/repoReducers/resultReducer";
+import { writeInfoDocAndRisk, writeIds, appendLoadedDocs, setIsLoaded, setLastIndexDocLoaded, resetData } from "../../reducers/repoReducers/resultReducer";
 import background from "../../img/result-page-img.svg";
+import { useNavigate } from "react-router-dom";
 
 import Button from "../button";
 import Title from "../title";
 import ResultSlider from "../resultSlider";
+import PostCard from "../postCard";
 
 function ResultPage(){
   const { data } = useSelector(state => state.search);
   const { isLoaded, loadedDocs, docData, lastIndexDocLoaded } = useSelector(state => state.result);
   const dispatch = useDispatch();
+  const navigator = useNavigate();
   
   const searchData = {
       issueDateInterval: {
@@ -53,10 +56,11 @@ function ResultPage(){
     }
     
   useEffect(() => {
-    if(!isLoaded){
-      getDocAndRisk();
-      getDocIds();
-    }
+    dispatch(resetData());
+    getDocAndRisk();
+    getDocIds();
+
+    return () => { dispatch(resetData()) }
   }, []);
 
   function getDocAndRisk(){
@@ -147,16 +151,16 @@ function ResultPage(){
         <div className="result-page__carousel-block">
           <Title type="other-subtitle">Общая сводка</Title>
           <p className="result-page__carousel-block__text">
-            Найдено {docData.infoDocAndRisk.reduce((sum, value) => sum + value.countDoc, 0)} вариантов
+            {isLoaded ? `Найдено вариантов: ${docData.ids.length}` : "Загрузка..." }
           </p>
           <ResultSlider data={docData.infoDocAndRisk} isLoaded={isLoaded}/>
         </div>
         <div className="result-page__docs-block">
           <Title type="other-subtitle">Список документов</Title>
           <div className="posts-block">
-            {loadedDocs.map((item, index) => <div key={item.id}>{index} -- {item.id}</div>)}
+            {loadedDocs.map(item => <PostCard key={item.id} data={item}/>)}
           </div>
-          {lastIndexDocLoaded < docData.ids.length && <Button onClick={() => lazyLoadDocs(docData.ids)}>Показать больше {lastIndexDocLoaded}</Button>}
+          {lastIndexDocLoaded < docData.ids.length && <Button onClick={() => lazyLoadDocs(docData.ids)}>Показать больше</Button>}
         </div>
       </main>
   )
