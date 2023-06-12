@@ -6,7 +6,7 @@ function AuthenticationMenu({onClick}){
   const navigate = useNavigate();
 
   function clickHandler(){
-    if(onClick !== null && onClick !== undefined){
+    if(typeof onClick === 'function'){
       onClick();
     }
     navigate("/account/login");

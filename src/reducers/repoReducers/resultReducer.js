@@ -1,6 +1,6 @@
 const WRITE_INFO_DOC_AND_RISK = "WRITE_INFO_DOC_AND_RISK";
 const WRITE_IDS = "WRITE_IDS";
-const WRITE_LAST_LOADED_DOCS = "WRITE_LAST_LOADED_DOCS";
+const APPEND_LOADED_DOCS = "APPEND_LOADED_DOCS";
 const SET_IS_LOADED = "SET_IS_LOADED";
 const SET_LAST_INDEX_DOC_LOADED = "SET_LAST_INDEX_DOC_LOADED";
 
@@ -9,7 +9,7 @@ const initialState = {
         infoDocAndRisk: [],
         ids: [],
     },
-    lastLoadedDocs: [],
+    loadedDocs: [],
     lastIndexDocLoaded: 0,
     isLoaded: false
 }
@@ -24,7 +24,7 @@ function result(state = initialState, action){
                     infoDocAndRisk: action.payload,
                     ids: [ ...state.docData.ids ]
                 },
-                lastLoadedDocs: [ ...state.lastLoadedDocs ]
+                loadedDocs: [ ...state.loadedDocs ]
             };
         case WRITE_IDS:
             return {
@@ -33,16 +33,16 @@ function result(state = initialState, action){
                     infoDocAndRisk: [ ...state.docData.infoDocAndRisk ],
                     ids: action.payload
                 },
-                lastLoadedDocs: [ ...state.lastLoadedDocs ]
+                loadedDocs: [ ...state.loadedDocs ]
             };
-        case WRITE_LAST_LOADED_DOCS:
+        case APPEND_LOADED_DOCS:
             return {
                 ...state,
                 docData: {
                     infoDocAndRisk: [ ...state.docData.infoDocAndRisk ],
                     ids: [ ...state.docData.ids ]
                 },
-                lastLoadedDocs: action.payload
+                loadedDocs: [ ...state.loadedDocs, ...action.payload ]
             };
         case SET_IS_LOADED:
             return {
@@ -51,7 +51,7 @@ function result(state = initialState, action){
                     infoDocAndRisk: [ ...state.docData.infoDocAndRisk ],
                     ids: [ ...state.docData.ids ]
                 },
-                lastLoadedDocs: [ ...state.lastLoadedDocs ],
+                loadedDocs: [ ...state.loadedDocs ],
                 isLoaded: action.payload
             }
         case SET_LAST_INDEX_DOC_LOADED:
@@ -61,7 +61,7 @@ function result(state = initialState, action){
                     infoDocAndRisk: [ ...state.docData.infoDocAndRisk ],
                     ids: [ ...state.docData.ids ]
                 },
-                lastLoadedDocs: [ ...state.lastLoadedDocs ],
+                loadedDocs: [ ...state.loadedDocs ],
                 lastIndexDocLoaded: action.payload
             }
         default:
@@ -71,7 +71,7 @@ function result(state = initialState, action){
 
 export const writeInfoDocAndRisk = (value) => ({type: WRITE_INFO_DOC_AND_RISK, payload: value});
 export const writeIds = (value) => ({type: WRITE_IDS, payload: value});
-export const writeLastLoadedDocs = (value) => ({type: WRITE_LAST_LOADED_DOCS, payload: value});
+export const appendLoadedDocs = (value) => ({type: APPEND_LOADED_DOCS, payload: value});
 export const setIsLoaded = (value) => ({type: SET_IS_LOADED, payload: value});
 export const setLastIndexDocLoaded = (value) => ({type: SET_LAST_INDEX_DOC_LOADED, payload: value});
 

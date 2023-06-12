@@ -1,8 +1,7 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 import "./style.css";
 import Flickity from "flickity";
 import ResultSliderItem from "../resultSliderItem";
-import { useSelector } from "react-redux";
 import Loader from "../loader";
 
 const flickityOptions = {
@@ -14,8 +13,7 @@ const flickityOptions = {
   adaptiveHeight: true
 }
 
-function ResultSlider({ data }){
-  const { isLoaded } = useSelector(state => state.result);
+function ResultSlider({ data, isLoaded }){
   let sliderRef;
 
   useEffect(() => {
@@ -44,7 +42,7 @@ function ResultSlider({ data }){
         flickity.destroy();
       }
     }
-  }, [])
+  }, [isLoaded])
 
   return(
     <div className="result-slider__wrapper">

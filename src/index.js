@@ -8,18 +8,20 @@ import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
 import { reducers } from './reducers';
+import { WebService } from './services/webService';
+import { setAuth } from './reducers/repoReducers/accountReducer';
 
 const store = configureStore({
   reducer: reducers
 })
 
+store.dispatch(setAuth(WebService.authCheck()));
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
     <Provider store={store}>
       <App />
     </Provider>
-  </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function
