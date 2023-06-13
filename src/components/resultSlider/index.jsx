@@ -26,24 +26,39 @@ function ResultSlider({ data, isLoaded }){
       const nextBtn = document.querySelector(".next");
 
       const elemCount = Math.floor(flickity.element.getBoundingClientRect().width / 139);
-      if(flickity.cells.length < elemCount + 1) nextBtn.disabled = true;
+      if(flickity.cells.length < elemCount + 1 && document.documentElement.clientWidth > 768) nextBtn.disabled = true;
       
+      window.onresize = () => {
+        flickity.select(0, false, true);
+        windowResize(flickity, nextBtn);
+      }
+
       flickity.on('select', index => {
-        const elemCount = Math.floor(flickity.element.getBoundingClientRect().width / 139);
-        if(flickity.cells.length - index < elemCount + 1){
-            nextBtn.disabled = true;
-        } else {
-            nextBtn.disabled = false;
-        }
-      })
-    }
+          if(document.documentElement.clientWidth > 768){
+            windowResize(flickity, nextBtn, index);
+          } else {
+            nextBtn.disabled = index === flickity.cells.length - 1; 
+          }
+        })
+      }
 
     return () => {
-      if(flickity !== undefined && flickity !== null){
+      if(flickity){
         flickity.destroy();
       }
+      window.onresize = null;
     }
   }, [isLoaded])
+
+  function windowResize(flickity, nextBtn, index = 0){
+    if(document.documentElement.clientWidth > 768){
+      const elemCount = Math.floor(flickity.element.getBoundingClientRect().width / 139);
+      nextBtn.disabled = flickity.cells.length - index < elemCount + 1;
+      console.log("window", flickity.cells.length, elemCount)
+    } else {
+      nextBtn.disabled = false;
+    }
+  }
 
   return(
     <div className="result-slider__wrapper">

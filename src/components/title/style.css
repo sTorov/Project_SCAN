@@ -98,3 +98,8 @@
     letter-spacing: .02em;
     margin-bottom: 17px;
 }
+@media (max-width: 500px){
+    .other-subtitle{
+        font-size: 28px;
+    }
+}

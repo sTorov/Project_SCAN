@@ -59,10 +59,12 @@ function PostCard({ data }){
           {img && <img className="post-card__img" src={img} alt={`img_${data.id.substring(0, 10)}`}/>}
         </div>
         <p className="post-card__content">{text}</p>
-        <a className="post-card__button" href={data.url} target="_blank">Читать в источнике</a>
-        <span className="post-card__span">
-          {`${data.attributes.wordCount} ${getCorrectWord(data.attributes.wordCount)}`}
-        </span>
+        <div className="flexbox">
+          <a className="post-card__button" href={data.url} target="_blank">Читать в источнике</a>
+          <span className="post-card__span">
+            {`${data.attributes.wordCount} ${getCorrectWord(data.attributes.wordCount)}`}
+          </span>
+        </div>
       </div>  
     </div>
   )

@@ -29,7 +29,7 @@
 @media (max-width: 768px){
     .header-left{
         width: max-content;
-        margin-right: 30px;
+        margin-right: 15px;
     }
 }
 @media (max-width: 375px){

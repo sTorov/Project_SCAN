@@ -139,7 +139,7 @@ function ResultPage(){
       <main>
         <div className="result-page__header">
           <div className="result-page__header__title-block">
-            <Title type="other-title">Ищем. Скоро будут результаты</Title>
+            <Title type="other-title">Ищем. Скоро<br/> будут результаты</Title>
             <p className="result-page__text">
               Поиск может занять некоторое время, просим сохранять терпение.  
             </p>
