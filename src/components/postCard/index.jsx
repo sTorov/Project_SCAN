@@ -20,6 +20,8 @@ function PostCard({ data }){
     text = text.replace(/(<([^>]+)>)/ig, '');
     text = text.replace(/\s{3,}/g, "\n\n");
     text = text.replace(/\n{1,}/g, "\n\n");
+    text = text.replace(/(?:https?):\/\/[\n\S]+/g, '');
+    text = text.replace(/\(\s/g, '\(');
 
     setText(text);
   }

@@ -14,7 +14,7 @@ input[type="date"]::-webkit-calendar-picker-indicator{
     min-height: 70px;
 }
 
-.error-message__wrapper {
+.data-range-wrapper .error-message__wrapper {
     width: 100%;
     top: 53px;
 }

@@ -6,6 +6,7 @@
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
     margin-bottom: 38px;
+    position: relative;
 }
 @media (max-width:1439px){
     .post-card{
@@ -28,15 +29,13 @@
 .post-card__span:nth-last-child(1){
     align-self: flex-end;
 }
-@media (max-width: 768px){
-    .post-card__span:nth-last-child(1){
-        margin-right: -12px;
-        font-size: 12px;
-    }
-}
 @media (max-width: 500px){
     .post-card__span{
         font-size: 14px;
+    }
+    .post-card__span:nth-last-child(1){
+        margin-right: -12px;
+        font-size: 12px;
     }
 }
 
@@ -206,4 +205,11 @@
 .flexbox{
     display: flex;
     justify-content: space-between;
+}
+@media (min-width: 1439px) {
+    .flexbox{
+        position: absolute;
+        bottom: 38px;
+        width: 581px;
+    }
 }

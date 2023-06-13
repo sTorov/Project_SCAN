@@ -24,7 +24,7 @@ function SearchForm(){
 
     function onChangeInn(value){
       dispatch(writeInn(value));
-      dispatch(setValidInn(ValidateService.validateInn(value, {})));
+      dispatch(setValidInn(ValidateService.validateInn(value)));
     }
 
     function onChangeStartDate(value){

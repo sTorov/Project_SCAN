@@ -50,7 +50,8 @@ function Header(){
     <header className={`header ${isDropdownOpen ? "opened" : ""}`}>
       <div className="container">
         <div className="header-left">
-          <Logo src={isDropdownOpen ? whiteLogo : logo} className="header__logo" imgRef={imgRef}/>
+          <Logo src={isDropdownOpen ? whiteLogo : logo} className="header__logo" imgRef={imgRef} 
+            onClick={isDropdownOpen ? () => closeMenu(true, false) : null}/>
           <Navbar/>
         </div>
         <div className={`header-right ${isAuth ? "d-flex-sb" : "d-flex-e"}`}>

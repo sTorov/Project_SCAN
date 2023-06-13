@@ -14,6 +14,7 @@ import logo_3 from "../../img/sign_in_icon_btn_3.svg";
 import Button from "../button";
 import Input from "../input";
 import { ValidateService } from "../../services/validateService";
+import { WebService } from "../../services/webService";
 
 function Login(){
     const { validLogin, validPassword, isAuthDenied, data } = useSelector(state => state.loginData);
@@ -24,10 +25,7 @@ function Login(){
         api.post("/v1/account/login", {login: data.login, password: data.password})
         .then(res => {
           if(res.status === 200){
-            localStorage.setItem('token', res.data.accessToken);
-            localStorage.setItem('expire', res.data.expire);
-            dispatch(setAuth(true));
-            navigator("/");
+            WebService.login(dispatch, navigator, res);
           }
         })
         .catch(error => {

@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import "./style.css";
 import api from "../../http";
+import { WebService } from "../../services/webService";
 import { useDispatch, useSelector } from "react-redux";
 import { writeInfoDocAndRisk, writeIds, appendLoadedDocs, setIsLoaded, setLastIndexDocLoaded, resetData } from "../../reducers/repoReducers/resultReducer";
 import background from "../../img/result-page-img.svg";
-import { useNavigate } from "react-router-dom";
 
 import Button from "../button";
 import Title from "../title";
@@ -14,56 +14,20 @@ import PostCard from "../postCard";
 function ResultPage(){
   const { data } = useSelector(state => state.search);
   const { isLoaded, loadedDocs, docData, lastIndexDocLoaded } = useSelector(state => state.result);
-  const dispatch = useDispatch();
-  const navigator = useNavigate();
-  
-  const searchData = {
-      issueDateInterval: {
-        startDate: data.dateStart,
-        endDate: data.dateEnd
-      },
-      searchContext: {
-        targetSearchEntitiesContext: {
-          targetSearchEntities: [
-            {
-              type: "company",
-              sparkId: null,
-              entityId: null,
-              inn: data.inn,
-              maxFullness: data.maxFullness,
-              inBusinessNews: data.inBusinessNews
-            }
-          ],
-          onlyMainRole: data.onlyMainRole,
-          tonality: data.tonality,
-          onlyWithRiskFactors: data.onlyWithRiskFactors
-        }
-      },
-      attributeFilters: {
-        excludeTechNews: data.excludeTechNews,
-        excludeAnnouncements: data.excludeAnnouncements,
-        excludeDigests: data.excludeDigests
-      },
-      similarMode: "duplicates",
-      limit: data.countDoc,
-      sortType: "sourceInfluence",
-      sortDirectionType: "desc",
-      intervalType: "month",
-      histogramTypes: [
-        "totalDocuments",
-        "riskFactors"
-      ]
-    }
+  const dispatch = useDispatch();  
     
   useEffect(() => {
     dispatch(resetData());
-    getDocAndRisk();
-    getDocIds();
+
+    const reqData = WebService.getSearchRequest(data);
+
+    getDocAndRisk(reqData);
+    getDocIds(reqData);
 
     return () => { dispatch(resetData()) }
   }, []);
 
-  function getDocAndRisk(){
+  function getDocAndRisk(searchData){
     let docAndRisks = [];
 
     api.post("/v1/objectsearch/histograms", searchData)
@@ -96,7 +60,7 @@ function ResultPage(){
       .catch(error => console.log(error));
   }
 
-  function getDocIds(){
+  function getDocIds(searchData){
     const ids = [];
     
     api.post("/v1/objectsearch", searchData)
@@ -160,7 +124,8 @@ function ResultPage(){
           <div className="posts-block">
             {loadedDocs.map(item => <PostCard key={item.id} data={item}/>)}
           </div>
-          {lastIndexDocLoaded < docData.ids.length && <Button onClick={() => lazyLoadDocs(docData.ids)}>Показать больше</Button>}
+          {lastIndexDocLoaded < docData.ids.length && 
+            <Button onClick={() => lazyLoadDocs(docData.ids)}>Показать больше</Button>}
         </div>
       </main>
   )

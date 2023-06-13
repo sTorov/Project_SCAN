@@ -24,7 +24,7 @@ function DateRange({error, valid, label, onChangeStart, onChangeEnd, required}){
     return `${year}-${`${month < 10 ? "0" : ""}${month}`}-${`${day < 10 ? "0" : ""}${day}`}`;
   }
 
-  function clickHandler(event, input, value, func){
+  function dateHandler(event, input, value, func){
     showPicker(input);
     if(value === null || event.target.value === ''){
       func(event.target.value);
@@ -37,12 +37,16 @@ function DateRange({error, valid, label, onChangeStart, onChangeEnd, required}){
       <div className="data-range-wrapper">
         <div className="select-wrapper">
          <input type={data.dateStart === null ? "text" : "date"} className={`input date ${valid ? "" : "invalid"}`} ref={el => startDateInput = el} placeholder="Дата начала" 
-           onClick={e => clickHandler(e, startDateInput, data.dateStart, onChangeStart)} onChange={e => onChangeStart(e.target.value)} 
+           onClick={e => dateHandler(e, startDateInput, data.dateStart, onChangeStart)} 
+           onChange={e => onChangeStart(e.target.value)}
+           onFocus={e => dateHandler(e, startDateInput, data.dateStart, onChangeStart)}
            defaultValue={data.dateStart === null ? null : getValueDate(data.dateStart)}/>
         </div>
         <div className="select-wrapper">
           <input type={data.dateEnd === null ? "text" : "date"} className={`input date ${valid ? "" : "invalid"}`} ref={el => endDateInput = el} placeholder="Дата конца"
-            onClick={e => clickHandler(e, endDateInput, data.dateEnd, onChangeEnd)} onChange={e => onChangeEnd(e.target.value)}
+            onClick={e => dateHandler(e, endDateInput, data.dateEnd, onChangeEnd)} 
+            onChange={e => onChangeEnd(e.target.value)}
+            onFocus={e => dateHandler(e, endDateInput, data.dateEnd, onChangeEnd)} 
             defaultValue={data.dateEnd === null ? null : getValueDate(data.dateEnd)}/>
         </div>
         {!valid && <div className="error-message__wrapper">

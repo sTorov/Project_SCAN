@@ -128,3 +128,12 @@
         width: 100%;
     }
 }
+
+.first-main-page-section__button-wrapper{
+    min-height: 60px;
+}
+@media (max-width: 1023.98px) {
+    .first-main-page-section__button-wrapper{
+        min-height: 0;
+    }
+}

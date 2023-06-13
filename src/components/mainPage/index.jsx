@@ -24,7 +24,9 @@ function MainPage(){
           Комплексный анализ публикаций, получение данных в формате PDF на электронную почту.
         </p>
 
-        {isAuth && <Button onClick={() => navigate("/search")}>Запросить данные</Button>}
+        <div className="first-main-page-section__button-wrapper">
+          {isAuth && <Button onClick={() => navigate("/search")}>Запросить данные</Button>}
+        </div>
         
         <img className="first-main-page-section__img" src={background_1} alt="background_1_main"/>
       </section>
