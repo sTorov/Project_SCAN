@@ -3,7 +3,6 @@
     align-items: center;
     min-height: 93px;
     margin-bottom: 50px;
-    position: relative;
     background-color: var(--white-color);
 }
 @media(max-width:768px) {

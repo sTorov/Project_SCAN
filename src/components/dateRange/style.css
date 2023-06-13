@@ -13,12 +13,32 @@ input[type="date"]::-webkit-calendar-picker-indicator{
     position: relative;
     min-height: 70px;
 }
+@media (max-width: 768px){
+    .data-range-wrapper{
+        flex-wrap: wrap;
+        margin-bottom: 40px;
+    }
+}
 
 .data-range-wrapper .error-message__wrapper {
     width: 100%;
     top: 53px;
 }
+@media (max-width: 768px){
+    .data-range-wrapper .error-message__wrapper{
+        top: 120px;
+    }
+}
 
 .data-range-wrapper .select-wrapper{
     height: min-content;
+    width: 48%;
+}
+@media (max-width: 768px){
+    .data-range-wrapper .select-wrapper{
+        width: 100%;
+    }
+    .data-range-wrapper .select-wrapper:first-child{
+        margin-bottom: 20px;
+    }
 }
