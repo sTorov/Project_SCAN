@@ -1,14 +1,10 @@
 .header{
+    display: flex;
+    align-items: center;
     min-height: 93px;
     margin-bottom: 50px;
     position: relative;
     background-color: var(--white-color);
-    transition: .5s ease;
-}
-@media(min-width:768px) {
-    .header{
-        transition: 0s;
-    }
 }
 @media(max-width:768px) {
     .header{
@@ -18,7 +14,6 @@
 
 .header.opened{
     background-color: var(--turquoise-color);
-    transition: .5s ease .6s;
 }
 
 .header-left{   

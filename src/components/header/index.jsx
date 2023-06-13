@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useEffect } from "react";
 import "./style.css";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -19,8 +19,6 @@ function Header(){
   const { isAuth } = useSelector(state => state.account);
   const dispatch = useDispatch();
 
-  const imgRef = useRef();
-
   useEffect(() => {
     window.addEventListener('resize', resizeWindow);
     return () => {
@@ -30,28 +28,17 @@ function Header(){
 
   function resizeWindow(){
     if(window.innerWidth > 768){
-      closeMenu(false, false);
+      dispatch(setDropdownOpen(false));
     }
-  }
-
-  function closeMenu(isLogoPaused, value){
-    dispatch(setDropdownOpen(value !== undefined ? value : !isDropdownOpen));
-    if(isLogoPaused){
-      pauseLogoChange();
-    }
-  }
-
-  function pauseLogoChange(){
-    imgRef.current.className = "header__logo hidden";
-    setTimeout(() => imgRef.current.className = "header__logo viewed", 600);
   }
 
   return(
+    <>
     <header className={`header ${isDropdownOpen ? "opened" : ""}`}>
       <div className="container">
         <div className="header-left">
-          <Logo src={isDropdownOpen ? whiteLogo : logo} className="header__logo" imgRef={imgRef} 
-            onClick={isDropdownOpen ? () => closeMenu(true, false) : null}/>
+          <Logo src={isDropdownOpen ? whiteLogo : logo} className="header__logo" 
+            onClick={isDropdownOpen ? () => dispatch(setDropdownOpen(false)) : null}/>
           <Navbar/>
         </div>
         <div className={`header-right ${isAuth ? "d-flex-sb" : "d-flex-e"}`}>
@@ -59,8 +46,9 @@ function Header(){
           {isAuth ? <AccountMenu/> : <AuthenticationMenu/>}
         </div>
       </div>
-      <Dropdown onClick={closeMenu}/>
     </header>
+    <Dropdown/>
+    </>
   )
 }
 

@@ -17,6 +17,7 @@
 @media (max-width:768px) {
     .account-menu__table{
         margin-right: 75px;
+        height: 75px;
     }
 }
 @media (max-width: 375px){
@@ -33,6 +34,11 @@
 }
 .account-menu__table div:nth-child(1){
     padding: 3px 0;
+}
+@media (max-width: 768px){
+    .account-menu__table div:nth-child(1){
+        padding-bottom: 7px;
+    }
 }
 
 .account-menu__table__text{

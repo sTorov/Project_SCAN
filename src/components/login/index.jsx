@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import "./style.css";
 
-import { setAuth } from "../../reducers/repoReducers/accountReducer";
 import { writeLogin, writePassword, setValidLogin, setValidPassword, setIsAuthDenied } from "../../reducers/repoReducers/loginDataReducer";
 import api from "../../http";
 

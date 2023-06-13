@@ -7,7 +7,7 @@
     padding: 5px;
     position: absolute;
     right: 25px;
-    top: 21px;
+    top: 29px;
 }
 @media(max-width: 768px){
     .dropdown-btn{
@@ -40,26 +40,31 @@
 }
 
 .dropdown-menu{
+    position: absolute;
     padding-top: 17px;
+    width: 100%;
+    min-height: 375px;
+    background-color: var(--turquoise-color);
 }
 @media (min-width: 768.98px){
     .dropdown-menu{
         display: none;
     }
 }
-.dropdown-menu.active{
+.dropdown-menu__wrapper.active{
     visibility: visible;
-    height: 375px;
+    position: absolute;
+    top: 93px;
+    height: calc(100vh - 93px);
+    width: 100vw;
+    background-color: rgba(0, 0, 0, .4);
     opacity: 1;
     z-index: 1;
-    transition: height .5s ease, opacity .5s ease .6s;
 }
-.dropdown-menu.inactive{
+.dropdown-menu__wrapper.inactive{
     visibility: hidden;
-    height: 0;
     opacity: 0;
     z-index: -1;
-    transition: height .5s ease .6s, opacity .5s ease;
 }
 
 
@@ -117,4 +122,9 @@
 
 .dropdown-menu .navbar-link.active{
     opacity: .55;
+}
+
+.div{
+    height: 100%;
+    width: 100%;
 }

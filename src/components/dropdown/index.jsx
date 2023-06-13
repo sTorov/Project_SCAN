@@ -7,8 +7,9 @@ import Navbar from "../navbar";
 import AuthenticationMenu from "../authenticationMenu";
 import { useNavigate } from "react-router-dom";
 import { WebService } from "../../services/webService";
+import { setDropdownOpen } from "../../reducers/repoReducers/flagsReducer";
 
-function Dropdown({onClick}){
+function Dropdown(){
   const { isAuth } = useSelector(state => state.account);
   const { isDropdownOpen } = useSelector(state => state.flags);
 
@@ -17,7 +18,7 @@ function Dropdown({onClick}){
 
   return(
     <>
-      <button className="dropdown-btn" type="button" onClick={() => onClick(true)}>
+      <button className="dropdown-btn" type="button" onClick={() => dispatch(setDropdownOpen(!isDropdownOpen))}>
         <div className={`icon ${isDropdownOpen ? "inactive" : "active"}`}>
           <div className="dropdown-btn__icon"></div>
           <div className="dropdown-btn__icon"></div>
@@ -27,12 +28,18 @@ function Dropdown({onClick}){
           <img src={cross} alt="cross_icon"/>
         </div>
       </button>
-      <div className={`dropdown-menu ${isDropdownOpen ? "active" : "inactive"}`}>
-        <Navbar onClick={() => onClick(true, false)}/>
-        {isAuth ? <div className="wrapper">
-                    <button className="auth-btn dropdown-cancel-btn" type="button" onClick={() => WebService.logout(dispatch, navigator)}>Выйти</button>
-                  </div>
-                : <AuthenticationMenu onClick={() => onClick(true, false)}/>}
+      <div className={`dropdown-menu__wrapper ${isDropdownOpen ? "active" : "inactive"}`}>
+        <div className="dropdown-menu">
+          <Navbar onClick={() => dispatch(setDropdownOpen(false))}/>
+          {isAuth ? <div className="wrapper">
+                      <button className="auth-btn dropdown-cancel-btn" type="button" onClick={() => {
+                        dispatch(setDropdownOpen(false));
+                        WebService.logout(dispatch, navigator); 
+                      }}>Выйти</button>
+                    </div>
+                  : <AuthenticationMenu />}
+        </div>
+        <div className="div" onClick={() => dispatch(setDropdownOpen(false))}></div>
       </div>
     </>
   );
