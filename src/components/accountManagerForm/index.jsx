@@ -5,7 +5,7 @@ import icon from "../../img/account_page_icon.svg";
 
 import Login from "../login";
 
-function Form(){
+function AccountManagerForm(){
   const location = useLocation();
   const partPath = location.pathname.split('/')[1];
 
@@ -26,4 +26,4 @@ function Form(){
   )
 }
 
-export default Form;
+export default AccountManagerForm;

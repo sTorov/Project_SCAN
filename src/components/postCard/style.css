@@ -147,6 +147,11 @@
     width: 100%;
     transform: translateY(-15%);
 }
+@media (max-width: 500px) {
+    .post-card__img{
+        transform: translateY(0);
+    }
+}
 
 .post-card__content{
     display: -webkit-box;
