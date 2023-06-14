@@ -10,6 +10,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import { reducers } from './reducers';
 import { WebService } from './services/webService';
 import { setAuth } from './reducers/repoReducers/accountReducer';
+import ErrorBoundary from './components/errorBoundary';
 
 const store = configureStore({
   reducer: reducers
@@ -19,9 +20,11 @@ store.dispatch(setAuth(WebService.authCheck()));
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    <Provider store={store}>
-      <App />
-    </Provider>
+    <ErrorBoundary>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </ErrorBoundary>
 );
 
 // If you want to start measuring performance in your app, pass a function
